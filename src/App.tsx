@@ -87,19 +87,14 @@ const App = () => {
             >
               <motion.div
                 animate={{ 
-                  scale: [1, 1.05, 1],
-                  boxShadow: [
-                    "0 0 30px 10px rgba(52, 211, 153, 0.2)",
-                    "0 0 80px 30px rgba(52, 211, 153, 0.4)",
-                    "0 0 30px 10px rgba(52, 211, 153, 0.2)"
-                  ]
+                  scale: [1, 1.05, 1]
                 }}
                 transition={{ 
-                  duration: 3, 
+                  duration: 4, 
                   repeat: Infinity,
                   ease: "easeInOut"
                 }}
-                className="w-72 h-72 flex items-center justify-center rounded-full bg-slate-900/60 backdrop-blur-md border border-emerald-500/20 mb-8 relative transition-transform duration-500 group-hover:scale-105"
+                className="w-72 h-72 flex items-center justify-center rounded-full bg-slate-900/60 backdrop-blur-md border border-emerald-500/20 mb-8 relative transition-transform duration-500 group-hover:scale-105 shadow-[0_0_40px_rgba(52,211,153,0.3)]"
               >
                 <div className="absolute inset-0 w-full h-full pointer-events-none">
                   <Canvas dpr={1} camera={{ position: [0, 0, 5], fov: 50 }}>

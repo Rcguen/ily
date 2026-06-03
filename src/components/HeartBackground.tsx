@@ -5,8 +5,8 @@ const HeartBackground: React.FC = () => {
   const [particles, setParticles] = useState<{ id: number; size: number; left: number; duration: number; delay: number; type: 'heart' | 'firefly' }[]>([]);
 
   useEffect(() => {
-    // Reduce number to 40 for performance, mix of hearts and fireflies
-    const items = Array.from({ length: 40 }).map((_, i) => ({
+    // Reduce number to 20 for extreme performance, mix of hearts and fireflies
+    const items = Array.from({ length: 20 }).map((_, i) => ({
       id: i,
       size: i % 3 === 0 ? Math.random() * 20 + 10 : Math.random() * 4 + 2, // Hearts are 10-30px, fireflies 2-6px
       left: Math.random() * 100,
@@ -36,7 +36,7 @@ const HeartBackground: React.FC = () => {
             delay: p.delay,
             ease: 'linear'
           }}
-          style={{ left: `${p.left}%` }}
+          style={{ left: `${p.left}%`, willChange: 'transform, opacity' }}
         >
           {p.type === 'heart' ? (
             <svg width={p.size} height={p.size} viewBox="0 0 24 24" fill="rgba(52, 211, 153, 0.4)" xmlns="http://www.w3.org/2000/svg">
@@ -44,8 +44,8 @@ const HeartBackground: React.FC = () => {
             </svg>
           ) : (
             <div 
-              className="rounded-full bg-emerald-200 blur-[1px]" 
-              style={{ width: p.size, height: p.size, boxShadow: '0 0 10px 2px rgba(52, 211, 153, 0.6)' }}
+              className="rounded-full bg-emerald-200" 
+              style={{ width: p.size, height: p.size, boxShadow: '0 0 8px 1px rgba(52, 211, 153, 0.5)' }}
             />
           )}
         </motion.div>
