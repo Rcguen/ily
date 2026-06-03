@@ -25,7 +25,7 @@ const App = () => {
 
   useEffect(() => {
     // You can replace this URL with any romantic royalty-free piano music (e.g. Clair de Lune)
-    audioRef.current = new Audio('./music.mp3');
+    audioRef.current = new Audio('./music.m4a');
     audioRef.current.loop = true;
     
     return () => {
