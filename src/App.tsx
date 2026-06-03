@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, Suspense } from 'react';
+import { useState, useRef, useEffect, Suspense } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Music, Pause, Leaf } from 'lucide-react';
 import HeartBackground from './components/HeartBackground';
