@@ -12,7 +12,7 @@ const App = () => {
 
   useEffect(() => {
     // You can replace this URL with any romantic royalty-free piano music (e.g. Clair de Lune)
-    audioRef.current = new Audio('https://cdn.pixabay.com/download/audio/2022/05/16/audio_03df8993f4.mp3?filename=clair-de-lune-113217.mp3');
+    audioRef.current = new Audio('./music.mp3');
     audioRef.current.loop = true;
     
     return () => {
@@ -91,7 +91,7 @@ const App = () => {
                 <div className="absolute inset-0 w-full h-full pointer-events-none">
                   <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
                     <Suspense fallback={null}>
-                      <Ring3D modelPath="/ring.glb" />
+                      <Ring3D modelPath="./ring.glb" />
                     </Suspense>
                   </Canvas>
                 </div>
