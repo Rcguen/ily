@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', sans-serif;
+  --font-dancing: 'Dancing Script', cursive;
+  --font-playfair: 'Playfair Display', serif;
+}
+
+body {
+  @apply bg-emerald-50 text-slate-800;
+  margin: 0;
+  overflow: hidden;
+}
+
+/* Custom scrollbar for the letter */
+.letter-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+.letter-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.letter-scroll::-webkit-scrollbar-thumb {
+  @apply bg-emerald-200 rounded-full;
+}
+.letter-scroll::-webkit-scrollbar-thumb:hover {
+  @apply bg-emerald-300;
+}
