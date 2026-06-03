@@ -147,25 +147,30 @@ const App = () => {
               initial={{ opacity: 0, y: 50, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 1.2, ease: "easeOut", type: "spring", bounce: 0.3 }}
-              className="relative w-full max-w-3xl bg-emerald-50/85 backdrop-blur-xl rounded-3xl p-8 md:p-12 shadow-[0_10px_50px_rgba(16,185,129,0.25)] border border-emerald-200 overflow-hidden"
+              className="relative w-full max-w-3xl bg-[#fdfbf7] rounded-sm p-8 md:p-12 shadow-2xl border border-[#e2dfd6] overflow-hidden"
             >
-              {/* Decorative corners */}
-              <div className="absolute top-4 left-4 text-emerald-300"><Leaf size={32} strokeWidth={1} /></div>
-              <div className="absolute top-4 right-4 text-emerald-300 scale-x-[-1]"><Leaf size={32} strokeWidth={1} /></div>
-              <div className="absolute bottom-4 left-4 text-emerald-300 scale-y-[-1]"><Leaf size={32} strokeWidth={1} /></div>
-              <div className="absolute bottom-4 right-4 text-emerald-300 rotate-180"><Leaf size={32} strokeWidth={1} /></div>
+              {/* Inner border frame */}
+              <div className="absolute inset-4 border-[0.5px] border-[#c2bca8] pointer-events-none rounded-sm"></div>
+              
+              {/* Corner ornaments */}
+              <div className="absolute top-3 left-3 text-[#8b917c] bg-[#fdfbf7] p-1"><Leaf size={16} strokeWidth={1} /></div>
+              <div className="absolute top-3 right-3 text-[#8b917c] bg-[#fdfbf7] p-1 scale-x-[-1]"><Leaf size={16} strokeWidth={1} /></div>
+              <div className="absolute bottom-3 left-3 text-[#8b917c] bg-[#fdfbf7] p-1 scale-y-[-1]"><Leaf size={16} strokeWidth={1} /></div>
+              <div className="absolute bottom-3 right-3 text-[#8b917c] bg-[#fdfbf7] p-1 rotate-180"><Leaf size={16} strokeWidth={1} /></div>
 
               <motion.div 
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.3, duration: 0.8 }}
-                className="text-center mb-8 relative z-10"
+                className="text-center mb-8 relative z-10 flex flex-col items-center"
               >
-                <h1 className="font-dancing text-4xl md:text-6xl text-emerald-600 mb-4 drop-shadow-sm">Happy 3 Months</h1>
-                <div className="flex items-center justify-center gap-3 opacity-70">
-                  <div className="w-16 h-[1px] bg-gradient-to-r from-transparent to-emerald-400 rounded-full"></div>
-                  <Leaf size={18} className="text-emerald-500" />
-                  <div className="w-16 h-[1px] bg-gradient-to-l from-transparent to-emerald-400 rounded-full"></div>
+                <div className="w-full text-right font-dancing text-lg text-[#4a5d4e] mb-2">June 03, 2026</div>
+                <h1 className="font-dancing text-5xl md:text-7xl text-[#2c4031] mb-6">Happy 3 Months</h1>
+                
+                <div className="flex items-center justify-center gap-3 opacity-60 w-full max-w-[200px]">
+                  <div className="flex-1 h-[0.5px] bg-[#2c4031]"></div>
+                  <Leaf size={14} className="text-[#2c4031]" />
+                  <div className="flex-1 h-[0.5px] bg-[#2c4031]"></div>
                 </div>
               </motion.div>
 
@@ -173,13 +178,10 @@ const App = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.6, duration: 1 }}
-                className="relative z-10 font-playfair text-lg md:text-xl leading-loose tracking-wide text-emerald-950 h-[50vh] overflow-y-auto letter-scroll pr-6 space-y-6"
+                className="relative z-10 font-playfair italic text-lg md:text-xl leading-loose tracking-wide text-[#3a4a3e] h-[45vh] overflow-y-auto letter-scroll pr-6 space-y-6"
               >
-                <p className="font-dancing text-4xl md:text-5xl text-emerald-600 font-semibold drop-shadow-sm pt-2">
+                <p>
                   To my beautiful Kristine,
-                </p>
-                <p className="font-semibold text-emerald-800 text-xl">
-                  Happy 3-month anniversary!
                 </p>
                 <p>
                   Today, I wanted to write something a little different for you. When I look back at the last 90 days, I just smile. It is amazing how much my world has changed since you came into it.
@@ -202,10 +204,22 @@ const App = () => {
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 1.5, duration: 0.8 }}
-                className="relative z-10 mt-8 pt-6 border-t border-emerald-200 text-right font-dancing text-3xl md:text-4xl text-emerald-600 opacity-90"
+                className="relative z-10 mt-8 pt-6 border-t-[0.5px] border-[#c2bca8] flex justify-between items-end"
               >
-                <p>Yours always,</p>
-                <p className="mt-2 text-2xl md:text-3xl text-emerald-800">nguyễn thành phú love you.</p>
+                {/* Left: Wax Seal */}
+                <div className="flex flex-col items-center gap-2">
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#8b2323] to-[#4a1212] shadow-inner flex items-center justify-center border-2 border-[#a33535] relative">
+                    <span className="font-playfair text-[#f4dbb2] text-2xl">P</span>
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-transparent to-white/10 pointer-events-none"></div>
+                  </div>
+                  <span className="font-sans text-[10px] tracking-widest text-[#8b917c] uppercase">To my love</span>
+                </div>
+
+                {/* Right: Signature */}
+                <div className="text-right flex flex-col items-end">
+                  <p className="font-dancing text-2xl md:text-3xl text-[#4a5d4e]">Yours always,</p>
+                  <p className="font-dancing text-3xl md:text-4xl text-[#2c4031] mt-1">nguyễn thành phú</p>
+                </div>
               </motion.div>
             </motion.div>
           )}

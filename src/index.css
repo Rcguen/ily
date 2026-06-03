@@ -42,8 +42,8 @@ body {
   background: transparent;
 }
 .letter-scroll::-webkit-scrollbar-thumb {
-  @apply bg-emerald-200 rounded-full;
+  @apply bg-[#c2bca8] rounded-full;
 }
 .letter-scroll::-webkit-scrollbar-thumb:hover {
-  @apply bg-emerald-300;
+  @apply bg-[#8b917c];
 }
