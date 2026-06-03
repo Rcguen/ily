@@ -59,8 +59,26 @@ const App = () => {
   };
 
   return (
-    <div className="relative min-h-screen w-full overflow-hidden font-sans text-slate-800">
+    <div className="relative min-h-screen w-full overflow-hidden font-sans text-slate-800 bg-slate-950">
       <HeartBackground />
+      
+      {/* Background Brightening Overlay (Turns on after clicking the ring) */}
+      <motion.div 
+        className="absolute inset-0 pointer-events-none z-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-emerald-300/30 via-emerald-800/10 to-transparent mix-blend-screen"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: stage !== 'opening' ? 1 : 0 }}
+        transition={{ duration: 2, ease: "easeInOut" }}
+      />
+
+      {/* Flash of magical light during transition */}
+      <motion.div 
+        className="absolute inset-0 pointer-events-none z-10 bg-emerald-50"
+        initial={{ opacity: 0 }}
+        animate={{ 
+          opacity: stage === 'transition' ? [0, 0.4, 0] : 0
+        }}
+        transition={{ duration: 1.5, ease: "easeInOut" }}
+      />
       
       {/* Music Toggle */}
       {stage !== 'opening' && (
