@@ -164,8 +164,8 @@ const App = () => {
                 transition={{ delay: 0.3, duration: 0.8 }}
                 className="text-center mb-6 relative z-10 flex flex-col items-center shrink-0"
               >
-                <div className="w-full text-right font-dancing text-lg text-[#4a5d4e] mb-2">June 03, 2026</div>
-                <h1 className="font-dancing text-5xl md:text-7xl text-[#2c4031] mb-6">Happy 3 Months</h1>
+                <div className="w-full text-right font-dancing text-lg text-[#4a5d4e] mb-2">April, 2026</div>
+                <h1 className="font-dancing text-5xl md:text-6xl text-[#2c4031] mb-6">Happy 3-Month Anniversary</h1>
                 
                 <div className="flex items-center justify-center gap-3 opacity-60 w-full max-w-[200px]">
                   <div className="flex-1 h-[0.5px] bg-[#2c4031]"></div>
