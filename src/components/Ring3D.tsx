@@ -33,10 +33,11 @@ export function Ring3D({ modelPath, scale = 0.8 }: Ring3DProps) {
         </group>
       </Float>
       
-      <ambientLight intensity={0.5} />
-      <directionalLight position={[10, 10, 5]} intensity={1.5} />
-      <spotLight position={[-10, -10, -10]} intensity={1} color="#a7f3d0" />
-      <Environment preset="city" />
+      <ambientLight intensity={0.1} color="#0f172a" />
+      <directionalLight position={[5, 5, 5]} intensity={2} color="#a7f3d0" />
+      <spotLight position={[-5, 5, -5]} angle={0.5} penumbra={1} intensity={10} color="#34d399" />
+      <spotLight position={[0, -5, 5]} angle={0.8} penumbra={1} intensity={5} color="#fbbf24" />
+      <Environment preset="night" environmentIntensity={0.3} />
     </PresentationControls>
   );
 }

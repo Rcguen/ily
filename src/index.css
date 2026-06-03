@@ -7,9 +7,31 @@
 }
 
 body {
-  @apply bg-emerald-50 text-slate-800;
+  @apply bg-slate-950 text-slate-100;
   margin: 0;
   overflow: hidden;
+}
+
+/* Custom Webkit Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-emerald-800/80 rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-emerald-600/80;
+}
+
+.text-glow {
+  text-shadow: 0 0 20px rgba(52, 211, 153, 0.5);
+}
+
+.glass-panel {
+  @apply bg-slate-900/60 backdrop-blur-2xl border border-emerald-500/20 shadow-[0_0_50px_rgba(16,185,129,0.1)];
 }
 
 /* Custom scrollbar for the letter */

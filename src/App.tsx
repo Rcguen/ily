@@ -3,7 +3,20 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Music, Pause, Leaf } from 'lucide-react';
 import HeartBackground from './components/HeartBackground';
 import { Canvas } from '@react-three/fiber';
+import { Html, useProgress } from '@react-three/drei';
 import { Ring3D } from './components/Ring3D';
+
+function CanvasLoader() {
+  const { progress } = useProgress();
+  return (
+    <Html center>
+      <div className="flex flex-col items-center justify-center space-y-3">
+        <div className="w-10 h-10 border-2 border-emerald-500/20 border-t-emerald-400 rounded-full animate-spin shadow-[0_0_15px_rgba(52,211,153,0.3)]"></div>
+        <span className="text-emerald-400 font-dancing text-2xl text-glow">{progress.toFixed(0)}%</span>
+      </div>
+    </Html>
+  );
+}
 
 const App = () => {
   const [stage, setStage] = useState<'opening' | 'transition' | 'letter'>('opening');
@@ -76,9 +89,9 @@ const App = () => {
                 animate={{ 
                   scale: [1, 1.05, 1],
                   boxShadow: [
-                    "0 0 20px 5px rgba(16, 185, 129, 0.3)",
-                    "0 0 60px 20px rgba(16, 185, 129, 0.6)",
-                    "0 0 20px 5px rgba(16, 185, 129, 0.3)"
+                    "0 0 30px 10px rgba(52, 211, 153, 0.2)",
+                    "0 0 80px 30px rgba(52, 211, 153, 0.4)",
+                    "0 0 30px 10px rgba(52, 211, 153, 0.2)"
                   ]
                 }}
                 transition={{ 
@@ -86,11 +99,11 @@ const App = () => {
                   repeat: Infinity,
                   ease: "easeInOut"
                 }}
-                className="w-64 h-64 flex items-center justify-center rounded-full bg-white/20 backdrop-blur-sm mb-8 relative transition-transform duration-500 group-hover:scale-105"
+                className="w-72 h-72 flex items-center justify-center rounded-full bg-slate-900/60 backdrop-blur-md border border-emerald-500/20 mb-8 relative transition-transform duration-500 group-hover:scale-105"
               >
                 <div className="absolute inset-0 w-full h-full pointer-events-none">
                   <Canvas dpr={1} camera={{ position: [0, 0, 5], fov: 50 }}>
-                    <Suspense fallback={null}>
+                    <Suspense fallback={<CanvasLoader />}>
                       <Ring3D modelPath="./ring.glb" />
                     </Suspense>
                   </Canvas>
@@ -108,7 +121,7 @@ const App = () => {
                   scale: { duration: 2, repeat: Infinity, ease: "easeInOut" },
                   y: { delay: 0.5, duration: 1 }
                 }}
-                className="font-dancing text-3xl md:text-4xl text-emerald-600 text-center drop-shadow-md"
+                className="font-dancing text-4xl md:text-5xl text-emerald-400 text-center text-glow"
               >
                 Tap on this ring...
               </motion.p>
@@ -121,13 +134,13 @@ const App = () => {
               initial={{ opacity: 0, y: 50, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 1.2, ease: "easeOut", type: "spring", bounce: 0.3 }}
-              className="relative w-full max-w-2xl bg-gradient-to-br from-white/95 to-emerald-50/95 backdrop-blur-md rounded-3xl shadow-2xl border border-white/60 p-6 md:p-10 overflow-hidden"
+              className="relative w-full max-w-3xl glass-panel rounded-3xl p-8 md:p-12 overflow-hidden"
             >
               {/* Decorative corners */}
-              <div className="absolute top-4 left-4 text-emerald-200/50"><Leaf size={32} strokeWidth={1.5} /></div>
-              <div className="absolute top-4 right-4 text-emerald-200/50 scale-x-[-1]"><Leaf size={32} strokeWidth={1.5} /></div>
-              <div className="absolute bottom-4 left-4 text-emerald-200/50 scale-y-[-1]"><Leaf size={32} strokeWidth={1.5} /></div>
-              <div className="absolute bottom-4 right-4 text-emerald-200/50 rotate-180"><Leaf size={32} strokeWidth={1.5} /></div>
+              <div className="absolute top-4 left-4 text-emerald-500/40"><Leaf size={32} strokeWidth={1} /></div>
+              <div className="absolute top-4 right-4 text-emerald-500/40 scale-x-[-1]"><Leaf size={32} strokeWidth={1} /></div>
+              <div className="absolute bottom-4 left-4 text-emerald-500/40 scale-y-[-1]"><Leaf size={32} strokeWidth={1} /></div>
+              <div className="absolute bottom-4 right-4 text-emerald-500/40 rotate-180"><Leaf size={32} strokeWidth={1} /></div>
 
               <motion.div 
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -135,11 +148,11 @@ const App = () => {
                 transition={{ delay: 0.3, duration: 0.8 }}
                 className="text-center mb-8 relative z-10"
               >
-                <h1 className="font-dancing text-4xl md:text-6xl text-emerald-600 mb-4 drop-shadow-sm">Happy 3 Months</h1>
-                <div className="flex items-center justify-center gap-3">
-                  <div className="w-16 h-[2px] bg-gradient-to-r from-transparent to-emerald-200 rounded-full"></div>
+                <h1 className="font-dancing text-4xl md:text-6xl text-emerald-400 mb-4 text-glow">Happy 3 Months</h1>
+                <div className="flex items-center justify-center gap-3 opacity-70">
+                  <div className="w-16 h-[1px] bg-gradient-to-r from-transparent to-emerald-400 rounded-full"></div>
                   <Leaf size={18} className="text-emerald-400" />
-                  <div className="w-16 h-[2px] bg-gradient-to-l from-transparent to-emerald-200 rounded-full"></div>
+                  <div className="w-16 h-[1px] bg-gradient-to-l from-transparent to-emerald-400 rounded-full"></div>
                 </div>
               </motion.div>
 
@@ -147,10 +160,10 @@ const App = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.6, duration: 1 }}
-                className="relative z-10 font-playfair text-lg md:text-xl leading-relaxed text-slate-700 h-[50vh] overflow-y-auto letter-scroll pr-4 space-y-6"
+                className="relative z-10 font-playfair text-lg md:text-xl leading-relaxed text-slate-200 h-[50vh] overflow-y-auto letter-scroll pr-4 space-y-6"
               >
                 <p>
-                  <span className="float-left text-5xl md:text-6xl text-emerald-500 font-dancing pr-2 pt-1 leading-none drop-shadow-sm">T</span>
+                  <span className="float-left text-6xl md:text-7xl text-emerald-400 font-dancing pr-3 pt-2 leading-none text-glow">T</span>
                   o my beautiful Kristine,
                 </p>
                 <p>
@@ -177,10 +190,10 @@ const App = () => {
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 1.5, duration: 0.8 }}
-                className="relative z-10 mt-8 pt-6 border-t border-emerald-100/50 text-right font-dancing text-3xl md:text-4xl text-emerald-600"
+                className="relative z-10 mt-8 pt-6 border-t border-emerald-500/20 text-right font-dancing text-3xl md:text-4xl text-emerald-400 opacity-90"
               >
                 <p>Yours always,</p>
-                <p className="mt-2 text-2xl md:text-3xl text-emerald-700">nguyễn thành phú love you.</p>
+                <p className="mt-2 text-2xl md:text-3xl text-emerald-300">nguyễn thành phú love you.</p>
               </motion.div>
             </motion.div>
           )}
