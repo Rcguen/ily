@@ -64,7 +64,7 @@ const App = () => {
       
       {/* Background Brightening Overlay (Turns completely bright) */}
       <motion.div 
-        className="absolute inset-0 pointer-events-none z-0 bg-gradient-to-b from-emerald-50 via-white to-emerald-100"
+        className="absolute inset-0 pointer-events-none z-0 bg-gradient-to-br from-emerald-100 via-emerald-200 to-emerald-400"
         initial={{ opacity: 0 }}
         animate={{ opacity: stage !== 'opening' ? 1 : 0 }}
         transition={{ duration: 2, ease: "easeInOut" }}
@@ -72,10 +72,10 @@ const App = () => {
 
       {/* Flash of magical light during transition */}
       <motion.div 
-        className="absolute inset-0 pointer-events-none z-10 bg-emerald-50"
+        className="absolute inset-0 pointer-events-none z-10 bg-emerald-200"
         initial={{ opacity: 0 }}
         animate={{ 
-          opacity: stage === 'transition' ? [0, 0.4, 0] : 0
+          opacity: stage === 'transition' ? [0, 0.6, 0] : 0
         }}
         transition={{ duration: 1.5, ease: "easeInOut" }}
       />
@@ -147,7 +147,7 @@ const App = () => {
               initial={{ opacity: 0, y: 50, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 1.2, ease: "easeOut", type: "spring", bounce: 0.3 }}
-              className="relative w-full max-w-3xl bg-white/80 backdrop-blur-xl rounded-3xl p-8 md:p-12 shadow-[0_10px_50px_rgba(16,185,129,0.15)] border border-emerald-100 overflow-hidden"
+              className="relative w-full max-w-3xl bg-emerald-50/85 backdrop-blur-xl rounded-3xl p-8 md:p-12 shadow-[0_10px_50px_rgba(16,185,129,0.25)] border border-emerald-200 overflow-hidden"
             >
               {/* Decorative corners */}
               <div className="absolute top-4 left-4 text-emerald-300"><Leaf size={32} strokeWidth={1} /></div>
