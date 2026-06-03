@@ -147,7 +147,7 @@ const App = () => {
               initial={{ opacity: 0, y: 50, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 1.2, ease: "easeOut", type: "spring", bounce: 0.3 }}
-              className="relative w-full max-w-3xl bg-[#fdfbf7] rounded-sm p-8 md:p-12 shadow-2xl border border-[#e2dfd6] overflow-hidden"
+              className="relative w-full max-w-3xl max-h-[90vh] flex flex-col bg-[#fdfbf7] rounded-sm p-8 md:p-12 shadow-2xl border border-[#e2dfd6] overflow-hidden"
             >
               {/* Inner border frame */}
               <div className="absolute inset-4 border-[0.5px] border-[#c2bca8] pointer-events-none rounded-sm"></div>
@@ -162,7 +162,7 @@ const App = () => {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.3, duration: 0.8 }}
-                className="text-center mb-8 relative z-10 flex flex-col items-center"
+                className="text-center mb-6 relative z-10 flex flex-col items-center shrink-0"
               >
                 <div className="w-full text-right font-dancing text-lg text-[#4a5d4e] mb-2">June 03, 2026</div>
                 <h1 className="font-dancing text-5xl md:text-7xl text-[#2c4031] mb-6">Happy 3 Months</h1>
@@ -178,7 +178,7 @@ const App = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.6, duration: 1 }}
-                className="relative z-10 font-playfair italic text-lg md:text-xl leading-loose tracking-wide text-[#3a4a3e] h-[45vh] overflow-y-auto letter-scroll pr-6 space-y-6"
+                className="relative z-10 font-playfair italic text-lg md:text-xl leading-loose tracking-wide text-[#3a4a3e] flex-1 min-h-0 overflow-y-auto letter-scroll pr-6 space-y-6"
               >
                 <p>
                   To my beautiful Kristine,
@@ -204,7 +204,7 @@ const App = () => {
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 1.5, duration: 0.8 }}
-                className="relative z-10 mt-8 pt-6 border-t-[0.5px] border-[#c2bca8] flex justify-between items-end"
+                className="relative z-10 mt-6 pt-6 border-t-[0.5px] border-[#c2bca8] flex justify-between items-end shrink-0"
               >
                 {/* Left: Wax Seal */}
                 <div className="flex flex-col items-center gap-2">
