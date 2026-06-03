@@ -62,9 +62,9 @@ const App = () => {
     <div className="relative min-h-screen w-full overflow-hidden font-sans text-slate-800 bg-slate-950">
       <HeartBackground />
       
-      {/* Background Brightening Overlay (Turns on after clicking the ring) */}
+      {/* Background Brightening Overlay (Turns completely bright) */}
       <motion.div 
-        className="absolute inset-0 pointer-events-none z-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-emerald-300/30 via-emerald-800/10 to-transparent mix-blend-screen"
+        className="absolute inset-0 pointer-events-none z-0 bg-gradient-to-b from-emerald-50 via-white to-emerald-100"
         initial={{ opacity: 0 }}
         animate={{ opacity: stage !== 'opening' ? 1 : 0 }}
         transition={{ duration: 2, ease: "easeInOut" }}
@@ -86,7 +86,7 @@ const App = () => {
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ type: "spring", stiffness: 260, damping: 20 }}
-          className="absolute top-4 right-4 z-50 p-3 bg-white/30 backdrop-blur-md rounded-full shadow-lg border border-white/40 text-emerald-500 hover:bg-white/50 transition-all hover:scale-110"
+          className="absolute top-4 right-4 z-50 p-3 bg-white/50 backdrop-blur-md rounded-full shadow-lg border border-emerald-200 text-emerald-600 hover:bg-white transition-all hover:scale-110"
           onClick={toggleMusic}
         >
           {isPlaying ? <Pause size={24} /> : <Music size={24} />}
@@ -147,13 +147,13 @@ const App = () => {
               initial={{ opacity: 0, y: 50, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 1.2, ease: "easeOut", type: "spring", bounce: 0.3 }}
-              className="relative w-full max-w-3xl glass-panel rounded-3xl p-8 md:p-12 overflow-hidden"
+              className="relative w-full max-w-3xl bg-white/80 backdrop-blur-xl rounded-3xl p-8 md:p-12 shadow-[0_10px_50px_rgba(16,185,129,0.15)] border border-emerald-100 overflow-hidden"
             >
               {/* Decorative corners */}
-              <div className="absolute top-4 left-4 text-emerald-500/40"><Leaf size={32} strokeWidth={1} /></div>
-              <div className="absolute top-4 right-4 text-emerald-500/40 scale-x-[-1]"><Leaf size={32} strokeWidth={1} /></div>
-              <div className="absolute bottom-4 left-4 text-emerald-500/40 scale-y-[-1]"><Leaf size={32} strokeWidth={1} /></div>
-              <div className="absolute bottom-4 right-4 text-emerald-500/40 rotate-180"><Leaf size={32} strokeWidth={1} /></div>
+              <div className="absolute top-4 left-4 text-emerald-300"><Leaf size={32} strokeWidth={1} /></div>
+              <div className="absolute top-4 right-4 text-emerald-300 scale-x-[-1]"><Leaf size={32} strokeWidth={1} /></div>
+              <div className="absolute bottom-4 left-4 text-emerald-300 scale-y-[-1]"><Leaf size={32} strokeWidth={1} /></div>
+              <div className="absolute bottom-4 right-4 text-emerald-300 rotate-180"><Leaf size={32} strokeWidth={1} /></div>
 
               <motion.div 
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -161,10 +161,10 @@ const App = () => {
                 transition={{ delay: 0.3, duration: 0.8 }}
                 className="text-center mb-8 relative z-10"
               >
-                <h1 className="font-dancing text-4xl md:text-6xl text-emerald-400 mb-4 text-glow">Happy 3 Months</h1>
+                <h1 className="font-dancing text-4xl md:text-6xl text-emerald-600 mb-4 drop-shadow-sm">Happy 3 Months</h1>
                 <div className="flex items-center justify-center gap-3 opacity-70">
                   <div className="w-16 h-[1px] bg-gradient-to-r from-transparent to-emerald-400 rounded-full"></div>
-                  <Leaf size={18} className="text-emerald-400" />
+                  <Leaf size={18} className="text-emerald-500" />
                   <div className="w-16 h-[1px] bg-gradient-to-l from-transparent to-emerald-400 rounded-full"></div>
                 </div>
               </motion.div>
@@ -173,10 +173,10 @@ const App = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.6, duration: 1 }}
-                className="relative z-10 font-playfair text-lg md:text-xl leading-relaxed text-slate-200 h-[50vh] overflow-y-auto letter-scroll pr-4 space-y-6"
+                className="relative z-10 font-playfair text-lg md:text-xl leading-relaxed text-slate-700 h-[50vh] overflow-y-auto letter-scroll pr-4 space-y-6"
               >
                 <p>
-                  <span className="float-left text-6xl md:text-7xl text-emerald-400 font-dancing pr-3 pt-2 leading-none text-glow">T</span>
+                  <span className="float-left text-6xl md:text-7xl text-emerald-500 font-dancing pr-3 pt-2 leading-none drop-shadow-sm">T</span>
                   o my beautiful Kristine,
                 </p>
                 <p>
@@ -203,10 +203,10 @@ const App = () => {
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 1.5, duration: 0.8 }}
-                className="relative z-10 mt-8 pt-6 border-t border-emerald-500/20 text-right font-dancing text-3xl md:text-4xl text-emerald-400 opacity-90"
+                className="relative z-10 mt-8 pt-6 border-t border-emerald-200 text-right font-dancing text-3xl md:text-4xl text-emerald-600 opacity-90"
               >
                 <p>Yours always,</p>
-                <p className="mt-2 text-2xl md:text-3xl text-emerald-300">nguyễn thành phú love you.</p>
+                <p className="mt-2 text-2xl md:text-3xl text-emerald-800">nguyễn thành phú love you.</p>
               </motion.div>
             </motion.div>
           )}
