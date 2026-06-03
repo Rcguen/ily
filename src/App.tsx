@@ -70,6 +70,55 @@ const App = () => {
         transition={{ duration: 2, ease: "easeInOut" }}
       />
 
+      {/* Vintage Botanical Decorations (Visible in Letter Stage) */}
+      <AnimatePresence>
+        {stage !== 'opening' && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 2 }}
+            className="absolute inset-0 pointer-events-none z-0 overflow-hidden flex items-center justify-center"
+          >
+            {/* Top Left Leaf */}
+            <motion.div 
+              className="absolute -top-10 -left-10 text-emerald-800/10"
+              animate={{ rotate: [0, 5, 0] }}
+              transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <Leaf size={350} strokeWidth={0.5} />
+            </motion.div>
+            
+            {/* Bottom Right Leaf */}
+            <motion.div 
+              className="absolute -bottom-20 -right-20 text-emerald-800/10 scale-x-[-1] scale-y-[-1]"
+              animate={{ rotate: [0, -5, 0] }}
+              transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <Leaf size={450} strokeWidth={0.5} />
+            </motion.div>
+
+            {/* Top Right small leaf */}
+            <motion.div 
+              className="absolute top-20 -right-10 text-emerald-800/5 rotate-90"
+              animate={{ rotate: [90, 95, 90] }}
+              transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <Leaf size={250} strokeWidth={0.5} />
+            </motion.div>
+
+            {/* Bottom Left small leaf */}
+            <motion.div 
+              className="absolute bottom-10 -left-10 text-emerald-800/5 -rotate-90"
+              animate={{ rotate: [-90, -85, -90] }}
+              transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <Leaf size={300} strokeWidth={0.5} />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Flash of magical light during transition */}
       <motion.div 
         className="absolute inset-0 pointer-events-none z-10 bg-emerald-200"
