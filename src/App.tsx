@@ -173,13 +173,12 @@ const App = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.6, duration: 1 }}
-                className="relative z-10 font-playfair text-lg md:text-xl leading-relaxed text-slate-700 h-[50vh] overflow-y-auto letter-scroll pr-4 space-y-6"
+                className="relative z-10 font-playfair text-lg md:text-xl leading-loose tracking-wide text-emerald-950 h-[50vh] overflow-y-auto letter-scroll pr-6 space-y-6"
               >
-                <p>
-                  <span className="float-left text-6xl md:text-7xl text-emerald-500 font-dancing pr-3 pt-2 leading-none drop-shadow-sm">T</span>
-                  o my beautiful Kristine,
+                <p className="font-dancing text-4xl md:text-5xl text-emerald-600 font-semibold drop-shadow-sm pt-2">
+                  To my beautiful Kristine,
                 </p>
-                <p>
+                <p className="font-semibold text-emerald-800 text-xl">
                   Happy 3-month anniversary!
                 </p>
                 <p>
