@@ -192,12 +192,28 @@ const App = () => {
 
           {stage === 'letter' && (
             <motion.div
-              key="letter"
-              initial={{ opacity: 0, y: 50, scale: 0.95 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ duration: 1.2, ease: "easeOut", type: "spring", bounce: 0.3 }}
-              className="relative w-full max-w-3xl max-h-[90vh] flex flex-col bg-[#fdfbf7] rounded-sm p-8 md:p-12 shadow-2xl border border-[#e2dfd6] overflow-hidden"
+              key="letter-container"
+              className="relative w-full max-w-3xl flex justify-center"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
             >
+              {/* Left GIF */}
+              <motion.img 
+                src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExbDBoY2ZwcnFhbWpsNHNlZDMxc2ltNXN4cHNrOGczdXN1cjh2bnVqcSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/9xghIQ617XHnGYN3jG/giphy.gif"
+                alt="Cute decoration left"
+                className="hidden xl:block absolute -left-56 bottom-0 w-64 h-auto z-20 pointer-events-none"
+                initial={{ opacity: 0, scale: 0.5, x: 20 }}
+                animate={{ opacity: 1, scale: 1, x: 0 }}
+                transition={{ delay: 1.2, duration: 0.8, type: "spring" }}
+              />
+
+              <motion.div
+                className="relative w-full max-h-[90vh] flex flex-col bg-[#fdfbf7] rounded-sm p-8 md:p-12 shadow-2xl border border-[#e2dfd6] overflow-hidden z-10"
+                initial={{ opacity: 0, y: 50, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ duration: 1.2, ease: "easeOut", type: "spring", bounce: 0.3 }}
+              >
               {/* Inner border frame */}
               <div className="absolute inset-4 border-[0.5px] border-[#c2bca8] pointer-events-none rounded-sm"></div>
               
@@ -271,7 +287,18 @@ const App = () => {
                 </div>
               </motion.div>
             </motion.div>
-          )}
+
+            {/* Right GIF */}
+            <motion.img 
+              src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExbDBoY2ZwcnFhbWpsNHNlZDMxc2ltNXN4cHNrOGczdXN1cjh2bnVqcSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/9xghIQ617XHnGYN3jG/giphy.gif"
+              alt="Cute decoration right"
+              className="hidden xl:block absolute -right-56 bottom-0 w-64 h-auto z-20 pointer-events-none scale-x-[-1]"
+              initial={{ opacity: 0, scale: 0.5, x: -20 }}
+              animate={{ opacity: 1, scale: 1, x: 0 }}
+              transition={{ delay: 1.2, duration: 0.8, type: "spring" }}
+            />
+          </motion.div>
+        )}
         </AnimatePresence>
       </div>
     </div>
