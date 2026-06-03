@@ -89,7 +89,7 @@ const App = () => {
                 className="w-64 h-64 flex items-center justify-center rounded-full bg-white/20 backdrop-blur-sm mb-8 relative transition-transform duration-500 group-hover:scale-105"
               >
                 <div className="absolute inset-0 w-full h-full pointer-events-none">
-                  <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
+                  <Canvas dpr={1} camera={{ position: [0, 0, 5], fov: 50 }}>
                     <Suspense fallback={null}>
                       <Ring3D modelPath="./ring.glb" />
                     </Suspense>

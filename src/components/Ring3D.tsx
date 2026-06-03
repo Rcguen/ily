@@ -40,3 +40,5 @@ export function Ring3D({ modelPath, scale = 0.8 }: Ring3DProps) {
     </PresentationControls>
   );
 }
+
+useGLTF.preload('./ring.glb');
