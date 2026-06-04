@@ -179,23 +179,24 @@ const App = () => {
                   </Canvas>
                 </div>
                 
-                <motion.p 
-                  initial={{ opacity: 0, y: 20, x: "-50%" }}
-                  animate={{ 
-                    opacity: [0.6, 1, 0.6], 
-                    y: 0,
-                    x: "-50%",
-                    scale: [0.98, 1.02, 0.98]
-                  }}
-                  transition={{ 
-                    opacity: { duration: 2, repeat: Infinity, ease: "easeInOut" },
-                    scale: { duration: 2, repeat: Infinity, ease: "easeInOut" },
-                    y: { delay: 0.5, duration: 1 }
-                  }}
-                  className="absolute left-1/2 -bottom-24 w-max font-dancing text-4xl md:text-5xl text-emerald-400 text-center text-glow z-20 pointer-events-none"
-                >
-                  Tap on this ring...
-                </motion.p>
+                <div className="absolute -bottom-24 w-[1000px] left-1/2 -translate-x-1/2 flex justify-center pointer-events-none z-20">
+                  <motion.p 
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ 
+                      opacity: [0.6, 1, 0.6], 
+                      y: 0,
+                      scale: [0.98, 1.02, 0.98]
+                    }}
+                    transition={{ 
+                      opacity: { duration: 2, repeat: Infinity, ease: "easeInOut" },
+                      scale: { duration: 2, repeat: Infinity, ease: "easeInOut" },
+                      y: { delay: 0.5, duration: 1 }
+                    }}
+                    className="font-dancing text-4xl md:text-5xl text-emerald-400 text-center text-glow"
+                  >
+                    Tap on this ring...
+                  </motion.p>
+                </div>
               </motion.div>
             </motion.div>
           )}
