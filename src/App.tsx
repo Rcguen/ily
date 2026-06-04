@@ -163,32 +163,39 @@ const App = () => {
                   repeat: Infinity,
                   ease: "easeInOut"
                 }}
-                className="w-72 h-72 flex items-center justify-center rounded-full bg-slate-900/60 backdrop-blur-md border border-emerald-500/20 mb-8 relative transition-transform duration-500 group-hover:scale-105 shadow-[0_0_40px_rgba(52,211,153,0.3)]"
+                className="w-72 h-72 flex items-center justify-center rounded-full bg-slate-900/60 backdrop-blur-md border border-emerald-500/20 relative transition-transform duration-500 group-hover:scale-105 shadow-[0_0_40px_rgba(52,211,153,0.3)]"
               >
-                <div className="absolute inset-0 w-full h-full pointer-events-none">
+                {/* Magical Aura Effects */}
+                <div className="absolute inset-0 rounded-full border border-emerald-400/30 animate-[ping_3s_cubic-bezier(0,0,0.2,1)_infinite]"></div>
+                <div className="absolute -inset-4 rounded-full border border-emerald-500/30 animate-[spin_10s_linear_infinite]"></div>
+                <div className="absolute -inset-8 rounded-full border-[1.5px] border-dashed border-emerald-300/20 animate-[spin_15s_linear_infinite_reverse]"></div>
+                <div className="absolute -inset-12 rounded-full border-[0.5px] border-emerald-400/10 animate-[spin_20s_linear_infinite]"></div>
+
+                <div className="absolute inset-0 w-full h-full pointer-events-none z-10">
                   <Canvas dpr={1} camera={{ position: [0, 0, 5], fov: 50 }}>
                     <Suspense fallback={<CanvasLoader />}>
                       <Ring3D modelPath="./ring.glb" />
                     </Suspense>
                   </Canvas>
                 </div>
+                
+                <motion.p 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ 
+                    opacity: [0.6, 1, 0.6], 
+                    y: 0,
+                    scale: [0.98, 1.02, 0.98]
+                  }}
+                  transition={{ 
+                    opacity: { duration: 2, repeat: Infinity, ease: "easeInOut" },
+                    scale: { duration: 2, repeat: Infinity, ease: "easeInOut" },
+                    y: { delay: 0.5, duration: 1 }
+                  }}
+                  className="absolute -bottom-24 w-max font-dancing text-4xl md:text-5xl text-emerald-400 text-center text-glow z-20 pointer-events-none"
+                >
+                  Tap on this ring...
+                </motion.p>
               </motion.div>
-              <motion.p 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ 
-                  opacity: [0.6, 1, 0.6], 
-                  y: 0,
-                  scale: [0.98, 1.02, 0.98]
-                }}
-                transition={{ 
-                  opacity: { duration: 2, repeat: Infinity, ease: "easeInOut" },
-                  scale: { duration: 2, repeat: Infinity, ease: "easeInOut" },
-                  y: { delay: 0.5, duration: 1 }
-                }}
-                className="font-dancing text-4xl md:text-5xl text-emerald-400 text-center text-glow"
-              >
-                Tap on this ring...
-              </motion.p>
             </motion.div>
           )}
 
