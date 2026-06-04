@@ -178,26 +178,25 @@ const App = () => {
                     </Suspense>
                   </Canvas>
                 </div>
-                
-                <div className="absolute -bottom-24 w-[1000px] left-1/2 -translate-x-1/2 flex justify-center pointer-events-none z-20">
-                  <motion.p 
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ 
-                      opacity: [0.6, 1, 0.6], 
-                      y: 0,
-                      scale: [0.98, 1.02, 0.98]
-                    }}
-                    transition={{ 
-                      opacity: { duration: 2, repeat: Infinity, ease: "easeInOut" },
-                      scale: { duration: 2, repeat: Infinity, ease: "easeInOut" },
-                      y: { delay: 0.5, duration: 1 }
-                    }}
-                    className="font-dancing text-4xl md:text-5xl text-emerald-400 text-center text-glow"
-                  >
-                    Tap on this ring...
-                  </motion.p>
-                </div>
               </motion.div>
+
+              {/* Text placed OUTSIDE the ring div as a flex sibling */}
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ 
+                  opacity: [0.6, 1, 0.6], 
+                  y: 0,
+                  scale: [0.98, 1.02, 0.98]
+                }}
+                transition={{ 
+                  opacity: { duration: 2, repeat: Infinity, ease: "easeInOut" },
+                  scale: { duration: 2, repeat: Infinity, ease: "easeInOut" },
+                  y: { delay: 0.5, duration: 1 }
+                }}
+                className="mt-16 font-dancing text-4xl md:text-5xl text-emerald-400 text-center text-glow"
+              >
+                Tap on this ring...
+              </motion.p>
             </motion.div>
           )}
 
