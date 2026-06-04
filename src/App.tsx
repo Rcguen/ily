@@ -121,10 +121,10 @@ const App = () => {
 
       {/* Flash of magical light during transition */}
       <motion.div 
-        className="absolute inset-0 pointer-events-none z-10 bg-emerald-200"
+        className="absolute inset-0 pointer-events-none z-10 bg-[#fdfbf7]"
         initial={{ opacity: 0 }}
         animate={{ 
-          opacity: stage === 'transition' ? [0, 0.6, 0] : 0
+          opacity: stage === 'transition' ? [0, 1, 0] : 0
         }}
         transition={{ duration: 1.5, ease: "easeInOut" }}
       />
@@ -147,8 +147,10 @@ const App = () => {
           {stage === 'opening' && (
             <motion.div
               key="opening"
-              exit={{ opacity: 0, scale: 2, filter: 'blur(20px)' }}
-              transition={{ duration: 1.5, ease: "easeInOut" }}
+              initial={{ opacity: 0, scale: 0.8, filter: 'blur(10px)' }}
+              animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+              exit={{ opacity: 0, scale: 1.5, filter: 'blur(20px)' }}
+              transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
               className="flex flex-col items-center justify-center cursor-pointer group"
               onClick={handleRingClick}
             >
@@ -203,16 +205,16 @@ const App = () => {
                 src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExbDBoY2ZwcnFhbWpsNHNlZDMxc2ltNXN4cHNrOGczdXN1cjh2bnVqcSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/9xghIQ617XHnGYN3jG/giphy.gif"
                 alt="Cute decoration left"
                 className="hidden xl:block absolute -left-56 bottom-0 w-64 h-auto z-20 pointer-events-none"
-                initial={{ opacity: 0, scale: 0.5, x: 20 }}
+                initial={{ opacity: 0, scale: 0.5, x: 50 }}
                 animate={{ opacity: 1, scale: 1, x: 0 }}
-                transition={{ delay: 1.2, duration: 0.8, type: "spring" }}
+                transition={{ delay: 6.5, duration: 1.5, type: "spring", bounce: 0.4 }}
               />
 
               <motion.div
                 className="relative w-full max-h-[90vh] flex flex-col bg-[#fdfbf7] rounded-sm p-8 md:p-12 shadow-2xl border border-[#e2dfd6] overflow-hidden z-10"
-                initial={{ opacity: 0, y: 50, scale: 0.95 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ duration: 1.2, ease: "easeOut", type: "spring", bounce: 0.3 }}
+                initial={{ opacity: 0, y: 100, scale: 0.9, filter: 'blur(10px)' }}
+                animate={{ opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }}
+                transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
               >
               {/* Inner border frame */}
               <div className="absolute inset-4 border-[0.5px] border-[#c2bca8] pointer-events-none rounded-sm"></div>
@@ -240,35 +242,41 @@ const App = () => {
               </motion.div>
 
               <motion.div 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.6, duration: 1 }}
+                initial="hidden"
+                animate="visible"
+                variants={{
+                  hidden: { opacity: 0 },
+                  visible: {
+                    opacity: 1,
+                    transition: { staggerChildren: 1.0, delayChildren: 0.8 }
+                  }
+                }}
                 className="relative z-10 font-playfair italic text-lg md:text-xl leading-loose tracking-wide text-[#3a4a3e] flex-1 min-h-0 overflow-y-auto letter-scroll pr-6 space-y-6"
               >
-                <p>
+                <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] } } }}>
                   To my beautiful Kristine,
-                </p>
-                <p>
+                </motion.p>
+                <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] } } }}>
                   Today, I wanted to write something a little different for you. When I look back at the last 90 days, I just smile. It is amazing how much my world has changed since you came into it.
-                </p>
-                <p>
+                </motion.p>
+                <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] } } }}>
                   Before you, my days were just normal routines. Now, you are the favorite part of my everyday life. We are building our story day by day, step by step, and every new memory we make together is so precious to me.
-                </p>
-                <p>
+                </motion.p>
+                <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] } } }}>
                   I love how comfortable I feel with you. I love our long talks, our silly jokes, and the quiet moments when we just sit next to each other. You have this sweet way of making everything feel warm and safe. Whenever I am tired, just seeing your smile makes everything better. You are so kind, so caring, and so patient with me. Knowing that I have you by my side gives me so much strength.
-                </p>
-                <p>
+                </motion.p>
+                <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] } } }}>
                   Three months down, and we have so many more to go. I am so excited to keep creating beautiful things and happy memories with you. I promise to always be the man who holds your hand, listens to your heart, and makes you feel loved every single day.
-                </p>
-                <p>
+                </motion.p>
+                <motion.p variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] } } }}>
                   Thank you for being you, Kristine. I love you so much.
-                </p>
+                </motion.p>
               </motion.div>
 
               <motion.div 
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 1.5, duration: 0.8 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 6.8, duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
                 className="relative z-10 mt-6 pt-6 border-t-[0.5px] border-[#c2bca8] flex justify-between items-end shrink-0"
               >
                 {/* Left: Wax Seal */}
@@ -293,9 +301,9 @@ const App = () => {
               src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExbDBoY2ZwcnFhbWpsNHNlZDMxc2ltNXN4cHNrOGczdXN1cjh2bnVqcSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/9xghIQ617XHnGYN3jG/giphy.gif"
               alt="Cute decoration right"
               className="hidden xl:block absolute -right-56 bottom-0 w-64 h-auto z-20 pointer-events-none scale-x-[-1]"
-              initial={{ opacity: 0, scale: 0.5, x: -20 }}
+              initial={{ opacity: 0, scale: 0.5, x: -50 }}
               animate={{ opacity: 1, scale: 1, x: 0 }}
-              transition={{ delay: 1.2, duration: 0.8, type: "spring" }}
+              transition={{ delay: 6.5, duration: 1.5, type: "spring", bounce: 0.4 }}
             />
           </motion.div>
         )}
