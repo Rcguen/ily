@@ -174,7 +174,7 @@ const App = () => {
                 <div className="absolute inset-0 w-full h-full pointer-events-none z-10">
                   <Canvas dpr={1} camera={{ position: [0, 0, 5], fov: 50 }}>
                     <Suspense fallback={<CanvasLoader />}>
-                      <Ring3D modelPath="./ring.glb" />
+                      <Ring3D modelPath="./ring.glb" scale={1.1} />
                     </Suspense>
                   </Canvas>
                 </div>
