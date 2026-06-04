@@ -180,10 +180,11 @@ const App = () => {
                 </div>
                 
                 <motion.p 
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 20, x: "-50%" }}
                   animate={{ 
                     opacity: [0.6, 1, 0.6], 
                     y: 0,
+                    x: "-50%",
                     scale: [0.98, 1.02, 0.98]
                   }}
                   transition={{ 
@@ -191,7 +192,7 @@ const App = () => {
                     scale: { duration: 2, repeat: Infinity, ease: "easeInOut" },
                     y: { delay: 0.5, duration: 1 }
                   }}
-                  className="absolute -bottom-24 w-max font-dancing text-4xl md:text-5xl text-emerald-400 text-center text-glow z-20 pointer-events-none"
+                  className="absolute left-1/2 -bottom-24 w-max font-dancing text-4xl md:text-5xl text-emerald-400 text-center text-glow z-20 pointer-events-none"
                 >
                   Tap on this ring...
                 </motion.p>
